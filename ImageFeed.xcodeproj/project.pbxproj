@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F0F64E929BCC946007111CA /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0F64E829BCC946007111CA /* UIColor+Extensions.swift */; };
+		7F3A153E29B5FD1800AF37C5 /* SingleImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3A153D29B5FD1800AF37C5 /* SingleImageViewController.swift */; };
+		7F6F0A2429B0B9FD002B1A78 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6F0A2329B0B9FD002B1A78 /* ProfileViewController.swift */; };
 		7FC70DBE29A381B800FC840A /* ImagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC70DBD29A381B800FC840A /* ImagesListCell.swift */; };
+		7FE35B3F29BCD4150025C2AE /* SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7FE35B3E29BCD4060025C2AE /* SFProText-Regular.ttf */; };
+		7FE35B4029BCD4190025C2AE /* SFProText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7FE35B3D29BCD3FD0025C2AE /* SFProText-Bold.ttf */; };
 		7FF7648E299E3FA000AAF94B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF7648D299E3FA000AAF94B /* AppDelegate.swift */; };
 		7FF76490299E3FA000AAF94B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF7648F299E3FA000AAF94B /* SceneDelegate.swift */; };
 		7FF76492299E3FA000AAF94B /* ImagesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF76491299E3FA000AAF94B /* ImagesListViewController.swift */; };
@@ -17,7 +22,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F0F64E829BCC946007111CA /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		7F3A153D29B5FD1800AF37C5 /* SingleImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageViewController.swift; sourceTree = "<group>"; };
+		7F6F0A2329B0B9FD002B1A78 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		7FC70DBD29A381B800FC840A /* ImagesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListCell.swift; sourceTree = "<group>"; };
+		7FE35B3D29BCD3FD0025C2AE /* SFProText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Bold.ttf"; sourceTree = "<group>"; };
+		7FE35B3E29BCD4060025C2AE /* SFProText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Regular.ttf"; sourceTree = "<group>"; };
 		7FF7648A299E3FA000AAF94B /* ImageFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FF7648D299E3FA000AAF94B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FF7648F299E3FA000AAF94B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +49,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F0F64E729BCC8F4007111CA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7F0F64E829BCC946007111CA /* UIColor+Extensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		7F0F64EA29BCD23A007111CA /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7FE35B3E29BCD4060025C2AE /* SFProText-Regular.ttf */,
+				7FE35B3D29BCD3FD0025C2AE /* SFProText-Bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		7FF76481299E3FA000AAF94B = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +85,7 @@
 		7FF7648C299E3FA000AAF94B /* ImageFeed */ = {
 			isa = PBXGroup;
 			children = (
+				7F0F64E729BCC8F4007111CA /* Helpers */,
 				7FF764A1299EAB1900AAF94B /* Presentation */,
 				7FF764A2299EABCB00AAF94B /* Resources */,
 				7FF7648D299E3FA000AAF94B /* AppDelegate.swift */,
@@ -71,6 +99,8 @@
 			children = (
 				7FF76491299E3FA000AAF94B /* ImagesListViewController.swift */,
 				7FC70DBD29A381B800FC840A /* ImagesListCell.swift */,
+				7F6F0A2329B0B9FD002B1A78 /* ProfileViewController.swift */,
+				7F3A153D29B5FD1800AF37C5 /* SingleImageViewController.swift */,
 				7FF76493299E3FA000AAF94B /* Main.storyboard */,
 			);
 			path = Presentation;
@@ -79,6 +109,7 @@
 		7FF764A2299EABCB00AAF94B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7F0F64EA29BCD23A007111CA /* Fonts */,
 				7FF76498299E3FA100AAF94B /* LaunchScreen.storyboard */,
 				7FF76496299E3FA100AAF94B /* Assets.xcassets */,
 				7FF7649B299E3FA100AAF94B /* Info.plist */,
@@ -146,7 +177,9 @@
 			files = (
 				7FF7649A299E3FA100AAF94B /* LaunchScreen.storyboard in Resources */,
 				7FF76497299E3FA100AAF94B /* Assets.xcassets in Resources */,
+				7FE35B4029BCD4190025C2AE /* SFProText-Bold.ttf in Resources */,
 				7FF76495299E3FA000AAF94B /* Main.storyboard in Resources */,
+				7FE35B3F29BCD4150025C2AE /* SFProText-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,7 +192,10 @@
 			files = (
 				7FF76492299E3FA000AAF94B /* ImagesListViewController.swift in Sources */,
 				7FC70DBE29A381B800FC840A /* ImagesListCell.swift in Sources */,
+				7F6F0A2429B0B9FD002B1A78 /* ProfileViewController.swift in Sources */,
 				7FF7648E299E3FA000AAF94B /* AppDelegate.swift in Sources */,
+				7F0F64E929BCC946007111CA /* UIColor+Extensions.swift in Sources */,
+				7F3A153E29B5FD1800AF37C5 /* SingleImageViewController.swift in Sources */,
 				7FF76490299E3FA000AAF94B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
