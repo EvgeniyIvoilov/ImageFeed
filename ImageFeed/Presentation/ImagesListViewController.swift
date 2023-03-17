@@ -9,7 +9,7 @@ class ImagesListViewController: UIViewController {
         return formatter
     }()
     
-    private let ShowSingleImageSegueIdentifier = "ShowSingleImage"
+    private let showSingleImageSegueIdentifier = "ShowSingleImage"
     
     // Models
     private let photosName: [String] = Array(0..<20).map{ "\($0)" }
@@ -26,7 +26,7 @@ class ImagesListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == ShowSingleImageSegueIdentifier {
+        if segue.identifier == showSingleImageSegueIdentifier {
             let viewController = segue.destination as! SingleImageViewController
             let indexPath = sender as! IndexPath
             let image = UIImage(named: photosName[indexPath.row])
