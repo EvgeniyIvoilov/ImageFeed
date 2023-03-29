@@ -1,6 +1,6 @@
 import UIKit
 
-class ImagesListViewController: UIViewController {
+final class ImagesListViewController: UIViewController {
     // Dependensies
     private lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -55,7 +55,7 @@ class ImagesListViewController: UIViewController {
 }
 
 extension ImagesListViewController: UITableViewDelegate {
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "ShowSingleImage", sender: indexPath)
     }

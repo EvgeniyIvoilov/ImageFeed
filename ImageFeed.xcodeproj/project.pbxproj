@@ -13,6 +13,15 @@
 		7FC70DBE29A381B800FC840A /* ImagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC70DBD29A381B800FC840A /* ImagesListCell.swift */; };
 		7FE35B3F29BCD4150025C2AE /* SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7FE35B3E29BCD4060025C2AE /* SFProText-Regular.ttf */; };
 		7FE35B4029BCD4190025C2AE /* SFProText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7FE35B3D29BCD3FD0025C2AE /* SFProText-Bold.ttf */; };
+		7FE35B6229C4AA7F0025C2AE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE35B6129C4AA7F0025C2AE /* Constants.swift */; };
+		7FE35B6629C893D50025C2AE /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE35B6529C893D50025C2AE /* AuthViewController.swift */; };
+		7FF6C95B29CAEC630051FE2D /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF6C95A29CAEC630051FE2D /* WebViewViewController.swift */; };
+		7FF6C95F29D1ACE30051FE2D /* OAuth2Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF6C95E29D1ACE30051FE2D /* OAuth2Service.swift */; };
+		7FF6C96129D1AD0D0051FE2D /* OAuth2TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF6C96029D1AD0D0051FE2D /* OAuth2TokenStorage.swift */; };
+		7FF6C96429D2FDCF0051FE2D /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF6C96329D2FDCF0051FE2D /* SplashViewController.swift */; };
+		7FF6C96729D359E90051FE2D /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF6C96629D359E90051FE2D /* URLSession.swift */; };
+		7FF6C96A29D35A4B0051FE2D /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF6C96929D35A4B0051FE2D /* NetworkError.swift */; };
+		7FF6C96C29D35AA70051FE2D /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF6C96B29D35AA70051FE2D /* URLRequest.swift */; };
 		7FF7648E299E3FA000AAF94B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF7648D299E3FA000AAF94B /* AppDelegate.swift */; };
 		7FF76490299E3FA000AAF94B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF7648F299E3FA000AAF94B /* SceneDelegate.swift */; };
 		7FF76492299E3FA000AAF94B /* ImagesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF76491299E3FA000AAF94B /* ImagesListViewController.swift */; };
@@ -28,6 +37,15 @@
 		7FC70DBD29A381B800FC840A /* ImagesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListCell.swift; sourceTree = "<group>"; };
 		7FE35B3D29BCD3FD0025C2AE /* SFProText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Bold.ttf"; sourceTree = "<group>"; };
 		7FE35B3E29BCD4060025C2AE /* SFProText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Regular.ttf"; sourceTree = "<group>"; };
+		7FE35B6129C4AA7F0025C2AE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7FE35B6529C893D50025C2AE /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		7FF6C95A29CAEC630051FE2D /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
+		7FF6C95E29D1ACE30051FE2D /* OAuth2Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2Service.swift; sourceTree = "<group>"; };
+		7FF6C96029D1AD0D0051FE2D /* OAuth2TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2TokenStorage.swift; sourceTree = "<group>"; };
+		7FF6C96329D2FDCF0051FE2D /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		7FF6C96629D359E90051FE2D /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
+		7FF6C96929D35A4B0051FE2D /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		7FF6C96B29D35AA70051FE2D /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
 		7FF7648A299E3FA000AAF94B /* ImageFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FF7648D299E3FA000AAF94B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FF7648F299E3FA000AAF94B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +84,59 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		7FE35B6729C893FB0025C2AE /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				7FE35B6529C893D50025C2AE /* AuthViewController.swift */,
+				7FF6C95A29CAEC630051FE2D /* WebViewViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		7FF6C95C29D1ACB30051FE2D /* ServiceAccessLayer */ = {
+			isa = PBXGroup;
+			children = (
+				7FF6C96829D35A3A0051FE2D /* Models */,
+				7FF6C96529D359D10051FE2D /* Extension */,
+				7FF6C95D29D1ACC40051FE2D /* OAuth2 */,
+			);
+			path = ServiceAccessLayer;
+			sourceTree = "<group>";
+		};
+		7FF6C95D29D1ACC40051FE2D /* OAuth2 */ = {
+			isa = PBXGroup;
+			children = (
+				7FF6C95E29D1ACE30051FE2D /* OAuth2Service.swift */,
+				7FF6C96029D1AD0D0051FE2D /* OAuth2TokenStorage.swift */,
+			);
+			path = OAuth2;
+			sourceTree = "<group>";
+		};
+		7FF6C96229D2FDC40051FE2D /* SplashViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7FF6C96329D2FDCF0051FE2D /* SplashViewController.swift */,
+			);
+			path = SplashViewController;
+			sourceTree = "<group>";
+		};
+		7FF6C96529D359D10051FE2D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7FF6C96629D359E90051FE2D /* URLSession.swift */,
+				7FF6C96B29D35AA70051FE2D /* URLRequest.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		7FF6C96829D35A3A0051FE2D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7FF6C96929D35A4B0051FE2D /* NetworkError.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		7FF76481299E3FA000AAF94B = {
 			isa = PBXGroup;
 			children = (
@@ -85,11 +156,15 @@
 		7FF7648C299E3FA000AAF94B /* ImageFeed */ = {
 			isa = PBXGroup;
 			children = (
-				7F0F64E729BCC8F4007111CA /* Helpers */,
+				7FF6C96229D2FDC40051FE2D /* SplashViewController */,
+				7FF6C95C29D1ACB30051FE2D /* ServiceAccessLayer */,
+				7FE35B6729C893FB0025C2AE /* Auth */,
 				7FF764A1299EAB1900AAF94B /* Presentation */,
+				7F0F64E729BCC8F4007111CA /* Helpers */,
 				7FF764A2299EABCB00AAF94B /* Resources */,
 				7FF7648D299E3FA000AAF94B /* AppDelegate.swift */,
 				7FF7648F299E3FA000AAF94B /* SceneDelegate.swift */,
+				7FE35B6129C4AA7F0025C2AE /* Constants.swift */,
 			);
 			path = ImageFeed;
 			sourceTree = "<group>";
@@ -190,13 +265,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FF6C96129D1AD0D0051FE2D /* OAuth2TokenStorage.swift in Sources */,
+				7FF6C95B29CAEC630051FE2D /* WebViewViewController.swift in Sources */,
 				7FF76492299E3FA000AAF94B /* ImagesListViewController.swift in Sources */,
 				7FC70DBE29A381B800FC840A /* ImagesListCell.swift in Sources */,
 				7F6F0A2429B0B9FD002B1A78 /* ProfileViewController.swift in Sources */,
+				7FF6C95F29D1ACE30051FE2D /* OAuth2Service.swift in Sources */,
+				7FF6C96429D2FDCF0051FE2D /* SplashViewController.swift in Sources */,
+				7FF6C96C29D35AA70051FE2D /* URLRequest.swift in Sources */,
 				7FF7648E299E3FA000AAF94B /* AppDelegate.swift in Sources */,
 				7F0F64E929BCC946007111CA /* UIColor+Extensions.swift in Sources */,
+				7FF6C96A29D35A4B0051FE2D /* NetworkError.swift in Sources */,
+				7FF6C96729D359E90051FE2D /* URLSession.swift in Sources */,
 				7F3A153E29B5FD1800AF37C5 /* SingleImageViewController.swift in Sources */,
 				7FF76490299E3FA000AAF94B /* SceneDelegate.swift in Sources */,
+				7FE35B6629C893D50025C2AE /* AuthViewController.swift in Sources */,
+				7FE35B6229C4AA7F0025C2AE /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
