@@ -5,6 +5,8 @@ private extension String {
 }
 
 final class OAuth2TokenStorage {
+    
+    private let userDefaults = UserDefaults.standard
     var token: String? {
         get {
             userDefaults.string(forKey: .bearerToken)
@@ -13,6 +15,4 @@ final class OAuth2TokenStorage {
             userDefaults.set(newValue, forKey: .bearerToken)
         }
     }
-    
-    private let userDefaults = UserDefaults.standard
 }
