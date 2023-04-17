@@ -1,17 +1,53 @@
 import UIKit
+import Kingfisher
 
 final class ProfileViewController: UIViewController {
+    
+    private let profileService = ProfileService.shared
+    private var profileImageServiceObserver: NSObjectProtocol?
     
     private let userPick = UIImageView()
     private let userNameLabel = UILabel()
     private let userLoginLabel = UILabel()
     private let descriptionLabel = UILabel()
     private let logOutButton = UIButton.systemButton(with: UIImage(named: "Logout")!, target: self, action: nil)
+    private let authStorage = OAuth2TokenStorage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addViews()
         constraintView()
+        guard let profile = profileService.profile else { return }
+        updateView(profile)
+        
+        profileImageServiceObserver = NotificationCenter.default
+            .addObserver(
+                forName: ProfileImageService.DidChangeNotification,
+                object: nil,
+                queue: .main
+            ) { [weak self] _ in
+                guard let self = self else { return }
+                self.updateAvatar()
+            }
+        updateAvatar()
+    }
+    
+    private func updateAvatar() {
+        guard
+            let profileImageURL = ProfileImageService.shared.avatarURL,
+            let url = URL(string: profileImageURL.imageUrlSmall!)
+        else { return }
+        let processor = RoundCornerImageProcessor(cornerRadius: 61)
+        userPick.kf.indicatorType = .activity
+        userPick.kf.setImage(with: url,
+                              placeholder: UIImage(named: "person.crop"),
+                              options: [.processor(processor)])
+    }
+    
+    private func updateView(_ profile: Profile) {
+        userNameLabel.text = profile.name
+        userLoginLabel.text = profile.loginName
+        descriptionLabel.text = profile.bio
     }
     
     private func setupView(_ subView: UIView) {
@@ -20,7 +56,7 @@ final class ProfileViewController: UIViewController {
     }
     
     private func addViews() {
-        let imageAvatar = UIImage(named: "Avatar")
+        let imageAvatar = UIImage(named: "person.crop")
         userPick.image = imageAvatar
         
         userNameLabel.text = "Екатерина Новикова"
