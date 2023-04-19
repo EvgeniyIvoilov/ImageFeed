@@ -1,4 +1,5 @@
 import Foundation
+import SwiftKeychainWrapper
 
 private extension String {
     static let bearerToken = "bearerToken"
@@ -6,13 +7,18 @@ private extension String {
 
 final class OAuth2TokenStorage {
     
-    private let userDefaults = UserDefaults.standard
+    private let keychainStorage = KeychainWrapper.standard
+        
     var token: String? {
         get {
-            userDefaults.string(forKey: .bearerToken)
+            keychainStorage.string(forKey: .bearerToken)
         }
         set {
-            userDefaults.set(newValue, forKey: .bearerToken)
+            guard let token = newValue else {
+                keychainStorage.removeObject(forKey: .bearerToken)
+                return
+            }
+            keychainStorage.set(token, forKey: .bearerToken)
         }
     }
 }

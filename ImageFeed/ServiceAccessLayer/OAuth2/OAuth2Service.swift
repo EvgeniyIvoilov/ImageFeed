@@ -4,15 +4,22 @@ final class OAuth2Service {
     
     static let shared = OAuth2Service()
     private let urlSession = URLSession.shared
+    
+    private var task: URLSessionTask?
+    private var lastCode: String?
+    
     private (set) var authToken: String? {
         get {
-            return OAuth2TokenStorage().token
+           return OAuth2TokenStorage().token
         }
         set {
-            OAuth2TokenStorage().token = newValue
+           OAuth2TokenStorage().token = newValue
         }
     }
     func fetchOAuthToken(_ code: String, completion: @escaping (Result<String, Error>) -> Void ){
+        if lastCode == code { return }
+        task?.cancel()
+        lastCode = code
         let request = authTokenRequest(code: code)
         let task = object(for: request) { [weak self] result in
             guard let self = self else { return }
@@ -22,6 +29,8 @@ final class OAuth2Service {
                 self.authToken = authToken
                 DispatchQueue.main.async {
                     completion(.success(authToken))
+                    self.task = nil
+                    self.lastCode = nil
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
@@ -29,7 +38,15 @@ final class OAuth2Service {
                 }
             }
         }
+        self.task = task
         task.resume()
+    }
+        
+    private func makeRequest(code: String) -> URLRequest {
+        guard let url = URL(string: "...\(code)") else { fatalError("Failed to create URL") }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        return request
     }
 }
 
@@ -73,3 +90,4 @@ extension OAuth2Service {
         }
     }
 }
+

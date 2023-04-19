@@ -10,6 +10,7 @@ extension URLSession {
                 completion(result)
             }
         }
+        
         let task = dataTask(with: request, completionHandler: { data, response, error in
             if let data = data,
                let response = response,
