@@ -10,7 +10,11 @@ final class ProfileViewController: UIViewController {
     private let userNameLabel = UILabel()
     private let userLoginLabel = UILabel()
     private let descriptionLabel = UILabel()
-    private let logOutButton = UIButton.systemButton(with: UIImage(named: "Logout")!, target: self, action: nil)
+    private let logOutButton: UIButton = {
+        let image: UIImage = UIImage(named: "Logout") ?? UIImage()
+        let button: UIButton = .systemButton(with: image, target: self, action: nil)
+        return button
+    }()
     private let authStorage = OAuth2TokenStorage()
     
     override func viewDidLoad() {
