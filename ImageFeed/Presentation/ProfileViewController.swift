@@ -12,7 +12,9 @@ final class ProfileViewController: UIViewController {
     private let descriptionLabel = UILabel()
     private let logOutButton: UIButton = {
         let image: UIImage = UIImage(named: "Logout") ?? UIImage()
-        let button: UIButton = .systemButton(with: image, target: self, action: nil)
+        let button: UIButton = .systemButton(with: image,
+                                             target: self,
+                                             action: #selector(Self.didTapLogoutButton))
         return button
     }()
     private let authStorage = OAuth2TokenStorage()
@@ -62,16 +64,15 @@ final class ProfileViewController: UIViewController {
     private func addViews() {
         let imageAvatar = UIImage(named: "person.crop")
         userPick.image = imageAvatar
+        userPick.layer.cornerRadius = 35
+        userPick.layer.masksToBounds = true
         
-        userNameLabel.text = "Екатерина Новикова"
         userNameLabel.font = UIFont(name: "SFProText-Bold", size: 23)
         userNameLabel.textColor = UIColor(.ypWhite)
         
-        userLoginLabel.text = "@ekaterina_nov"
         userLoginLabel.font = UIFont(name: "SFProText-Regular", size: 13)
         userLoginLabel.textColor = UIColor(.ypGray)
         
-        descriptionLabel.text = "Hello, world!"
         descriptionLabel.font = UIFont(name: "SFProText-Regular", size: 13)
         descriptionLabel.textColor = UIColor(.ypWhite)
         
@@ -104,5 +105,40 @@ final class ProfileViewController: UIViewController {
             logOutButton.heightAnchor.constraint(equalToConstant: 22),
             logOutButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -26),
             logOutButton.centerYAnchor.constraint(equalTo: userPick.centerYAnchor)])
+    }
+    
+    @objc
+    private func didTapLogoutButton() {
+        showLogoutAlert()
+    }
+    
+    private func logout() {
+        authStorage.clearToken()
+        WebViewViewController.clean()
+        cleanServicesData()
+        tabBarController?.dismiss(animated: true)
+        guard let window = UIApplication.shared.windows.first else {
+            fatalError("Invalid Configuration") }
+        window.rootViewController = SplashViewController()
+    }
+    
+    private func showLogoutAlert() {
+        let alert = UIAlertController(
+            title: "Пока, пока!",
+            message: "Уверены, что хотите выйти?",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Да", style: .default, handler: { [weak self] action in
+            guard let self = self else { return }
+            self.logout()
+        }))
+        alert.addAction(UIAlertAction(title: "Нет", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func cleanServicesData() {
+        ImagesListService.shared.clean()
+        ProfileService.shared.clean()
+        ProfileImageService.shared.clean()
     }
 }

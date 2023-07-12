@@ -20,7 +20,6 @@ final class ProfileService {
                 if let error = error {
                     completion(.failure(error))
                 }
-                
                 guard let data = data else { return }
                 do {
                     let profileResult = try self.decoder.decode(ProfileResult.self, from: data)
@@ -33,6 +32,12 @@ final class ProfileService {
         }
         self.task = task
         task.resume()
+    }
+    
+    func clean() {
+        profile = nil
+        task?.cancel()
+        task = nil
     }
 }
 
