@@ -43,8 +43,8 @@ final class ProfileService {
 
 struct ProfileResult: Codable {
     let userName: String
-    let firstName: String
-    let lastName: String
+    let firstName: String?
+    let lastName: String?
     let bio: String?
     
     enum CodingKeys: String, CodingKey {
@@ -67,8 +67,9 @@ struct Profile {
 
 extension Profile {
     static func from(_ profileResult: ProfileResult) -> Profile {
-        Profile(userName: profileResult.userName,
-                name: "\(profileResult.firstName) \(profileResult.lastName)",
-                bio: profileResult.bio ?? "Not found")
+        let name = (profileResult.firstName ?? "")  + " " + (profileResult.lastName ?? "")
+        return Profile(userName: profileResult.userName,
+                       name: name,
+                       bio: profileResult.bio ?? "Not found")
     }
 }

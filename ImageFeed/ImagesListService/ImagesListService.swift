@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 final class ImagesListService {
     
@@ -28,7 +29,7 @@ final class ImagesListService {
                     self.lastLoadedPage = nextPage
                 }
             } catch {
-                print(error)
+                self.showAlertErrorPhotos()
             }
             self.task = nil
         })
@@ -87,5 +88,15 @@ final class ImagesListService {
         lastLoadedPage = nil
         task?.cancel()
         task = nil
+    }
+    
+    private func showAlertErrorPhotos () {
+        let alert = UIAlertController(title: "Ошибка! Не удалось обновить фото",
+                                      message: "Попробовать еще раз",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Да", style: .default, handler: { [weak self] action in
+            guard let self = self else { return }
+            self.fetchPhotosNextPage(self.token!)
+        }))
     }
 }

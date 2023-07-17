@@ -22,9 +22,7 @@ final class ImagesListViewController: UIViewController {
                         guard let self = self else { return }
                         self.updateTableViewAnimated()
                     }
-        tableView.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
-        guard let token = token else { return }
-        imagesListService.fetchPhotosNextPage(token)
+        nextPage()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -62,6 +60,12 @@ final class ImagesListViewController: UIViewController {
                 tableView.insertRows(at: indexPaths, with: .bottom)
             } completion: { _ in }
         }
+    }
+    
+    private func nextPage() {
+        tableView.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
+        guard let token = token else { return }
+        imagesListService.fetchPhotosNextPage(token)
     }
 }
 

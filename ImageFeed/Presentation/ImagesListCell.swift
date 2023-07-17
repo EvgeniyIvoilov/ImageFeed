@@ -7,9 +7,10 @@ protocol ImagesListCellDelegate: AnyObject {
 
 final class ImagesListCell: UITableViewCell {
     
+    weak var delegate: ImagesListCellDelegate?
     let gradient = CAGradientLayer()
     static let reuseIdentifier = "ImagesListCell"
-        private static var dateFormatter: DateFormatter = {
+    private static var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ru_RU")
         formatter.dateFormat = "dd MMMM yyyy"
@@ -22,7 +23,9 @@ final class ImagesListCell: UITableViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+    
     private var dateLabel = UILabel()
+    
     private lazy var likeButton: UIButton = {
         let image: UIImage = UIImage(named: "No Active") ?? UIImage()
         let button: UIButton = UIButton()
@@ -30,8 +33,9 @@ final class ImagesListCell: UITableViewCell {
         button.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
         return button
     }()
+    
     private var gradientView = UIView()
-    weak var delegate: ImagesListCellDelegate?
+
         
     // здесь создается экземпляр ячейки из кода
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
