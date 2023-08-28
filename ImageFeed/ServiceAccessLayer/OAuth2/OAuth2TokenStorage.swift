@@ -5,7 +5,13 @@ private extension String {
     static let bearerToken = "bearerToken"
 }
 
-final class OAuth2TokenStorage {
+protocol OAuth2TokenStorageProtocol {
+    var token: String? { get set }
+    func removeToken()
+    func clearToken()
+}
+
+final class OAuth2TokenStorage: OAuth2TokenStorageProtocol {
     
     private let keychainStorage = KeychainWrapper.standard
         

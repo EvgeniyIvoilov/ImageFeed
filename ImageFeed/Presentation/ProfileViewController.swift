@@ -1,48 +1,51 @@
 import UIKit
 import Kingfisher
 
-final class ProfileViewController: UIViewController {
-    
-    private let profileService = ProfileService.shared
-    private var profileImageServiceObserver: NSObjectProtocol?
-    
+protocol ProfileViewControllerProtocol: AnyObject {
+    func updateAvatar(with url: URL)
+    func updateView(_ profile: Profile)
+}
+
+final class ProfileViewController: UIViewController & ProfileViewControllerProtocol {
+    // Dependensies
+    private let presenter: ProfilePresenterProtocol
+        
+    // UI
     private let userPick = UIImageView()
     private let userNameLabel = UILabel()
     private let userLoginLabel = UILabel()
     private let descriptionLabel = UILabel()
-    private let logOutButton: UIButton = {
+    private lazy var logOutButton: UIButton = {
         let image: UIImage = UIImage(named: "Logout") ?? UIImage()
         let button: UIButton = .systemButton(with: image,
                                              target: self,
                                              action: #selector(Self.didTapLogoutButton))
         return button
     }()
-    private let authStorage = OAuth2TokenStorage()
+    
+    // MARK: - Init
+    
+    init(presenter: ProfilePresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: Live Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addViews()
         constraintView()
-        guard let profile = profileService.profile else { return }
-        updateView(profile)
-        
-        profileImageServiceObserver = NotificationCenter.default
-            .addObserver(
-                forName: ProfileImageService.DidChangeNotification,
-                object: nil,
-                queue: .main
-            ) { [weak self] _ in
-                guard let self = self else { return }
-                self.updateAvatar()
-            }
-        updateAvatar()
+        presenter.viewDidLoad()
     }
     
-    private func updateAvatar() {
-        guard
-            let profileImageURL = ProfileImageService.shared.avatarURL,
-            let url = URL(string: profileImageURL.imageUrlSmall!)
-        else { return }
+    // MARK: - ProfileViewControllerProtocol
+    
+    func updateAvatar(with url: URL) {
         let processor = RoundCornerImageProcessor(cornerRadius: 61)
         userPick.kf.indicatorType = .activity
         userPick.kf.setImage(with: url,
@@ -50,11 +53,13 @@ final class ProfileViewController: UIViewController {
                               options: [.processor(processor)])
     }
     
-    private func updateView(_ profile: Profile) {
+    func updateView(_ profile: Profile) {
         userNameLabel.text = profile.name
         userLoginLabel.text = profile.loginName
         descriptionLabel.text = profile.bio
     }
+    
+    //MARK: - Private
     
     private func setupView(_ subView: UIView) {
         view.addSubview(subView)
@@ -77,6 +82,7 @@ final class ProfileViewController: UIViewController {
         descriptionLabel.textColor = UIColor(.ypWhite)
         
         logOutButton.tintColor = UIColor(.ypRed)
+        logOutButton.accessibilityLabel = "logout button"
         
         setupView(userPick)
         setupView(userNameLabel)
@@ -112,16 +118,6 @@ final class ProfileViewController: UIViewController {
         showLogoutAlert()
     }
     
-    private func logout() {
-        authStorage.clearToken()
-        WebViewViewController.clean()
-        cleanServicesData()
-        tabBarController?.dismiss(animated: true)
-        guard let window = UIApplication.shared.windows.first else {
-            fatalError("Invalid Configuration") }
-        window.rootViewController = SplashViewController()
-    }
-    
     private func showLogoutAlert() {
         let alert = UIAlertController(
             title: "Пока, пока!",
@@ -130,15 +126,17 @@ final class ProfileViewController: UIViewController {
         )
         alert.addAction(UIAlertAction(title: "Да", style: .default, handler: { [weak self] action in
             guard let self = self else { return }
-            self.logout()
+            self.logoutTapped()
         }))
         alert.addAction(UIAlertAction(title: "Нет", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
     
-    private func cleanServicesData() {
-        ImagesListService.shared.clean()
-        ProfileService.shared.clean()
-        ProfileImageService.shared.clean()
+    private func logoutTapped() {
+        presenter.logout()
+        tabBarController?.dismiss(animated: true)
+        guard let window = UIApplication.shared.windows.first else {
+            fatalError("Invalid Configuration") }
+        window.rootViewController = SplashViewController()
     }
 }

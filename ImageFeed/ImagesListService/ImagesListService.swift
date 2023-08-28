@@ -1,7 +1,14 @@
 import Foundation
 import UIKit
 
-final class ImagesListService {
+protocol ImagesListServiceProtocol {
+    var photos: [Photo] { get }
+    func fetchPhotosNextPage(_ token: String)
+    func changeLike(photoId: String, isLike: Bool, _ token: String, _ completion: @escaping (Result<Void, Error>) -> Void)
+    
+}
+
+final class ImagesListService: ImagesListServiceProtocol {
     
     static let shared = ImagesListService()
     static let DidChangeNotification = Notification.Name(rawValue:"ImagesListServiceDidChange")
@@ -37,8 +44,8 @@ final class ImagesListService {
     }
     
     func changeLike(photoId: String, isLike: Bool, _ token: String, _ completion: @escaping (Result<Void, Error>) -> Void) {
-         
-        if task != nil { return }
+        task?.cancel()
+
         let request = makeLikeRequest(photoId: photoId, isLike: isLike, token)
          let task = urlSession.dataTask(with: request) { [weak self] data, response, error in
              guard let self = self else { return }
