@@ -16,6 +16,9 @@
 		7FA543C429E961DE0058C67D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7FA543C329E961DE0058C67D /* Kingfisher */; };
 		7FA543C729E96E250058C67D /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 7FA543C629E96E250058C67D /* SwiftKeychainWrapper */; };
 		7FA543C929ED5CE90058C67D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA543C829ED5CE90058C67D /* TabBarController.swift */; };
+		7FA543CD29F00BB00058C67D /* ImagesListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA543CC29F00BB00058C67D /* ImagesListService.swift */; };
+		7FA543D029F29A5C0058C67D /* PhotosResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA543CF29F29A5C0058C67D /* PhotosResult.swift */; };
+		7FA543D229F2A4850058C67D /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA543D129F2A4850058C67D /* Photos.swift */; };
 		7FC70DBE29A381B800FC840A /* ImagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC70DBD29A381B800FC840A /* ImagesListCell.swift */; };
 		7FE35B3F29BCD4150025C2AE /* SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7FE35B3E29BCD4060025C2AE /* SFProText-Regular.ttf */; };
 		7FE35B4029BCD4190025C2AE /* SFProText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7FE35B3D29BCD3FD0025C2AE /* SFProText-Bold.ttf */; };
@@ -45,6 +48,9 @@
 		7FA543BE29E030EC0058C67D /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		7FA543C029E80C600058C67D /* ProfileImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageService.swift; sourceTree = "<group>"; };
 		7FA543C829ED5CE90058C67D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		7FA543CC29F00BB00058C67D /* ImagesListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListService.swift; sourceTree = "<group>"; };
+		7FA543CF29F29A5C0058C67D /* PhotosResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosResult.swift; sourceTree = "<group>"; };
+		7FA543D129F2A4850058C67D /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		7FC70DBD29A381B800FC840A /* ImagesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListCell.swift; sourceTree = "<group>"; };
 		7FE35B3D29BCD3FD0025C2AE /* SFProText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Bold.ttf"; sourceTree = "<group>"; };
 		7FE35B3E29BCD4060025C2AE /* SFProText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Regular.ttf"; sourceTree = "<group>"; };
@@ -98,6 +104,25 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		7FA543CB29F00B710058C67D /* ImagesListService */ = {
+			isa = PBXGroup;
+			children = (
+				7FA543CE29F29A430058C67D /* Models */,
+				7FA543CC29F00BB00058C67D /* ImagesListService.swift */,
+				7FA543C029E80C600058C67D /* ProfileImageService.swift */,
+			);
+			path = ImagesListService;
+			sourceTree = "<group>";
+		};
+		7FA543CE29F29A430058C67D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7FA543CF29F29A5C0058C67D /* PhotosResult.swift */,
+				7FA543D129F2A4850058C67D /* Photos.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		7FE35B6729C893FB0025C2AE /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,7 +148,6 @@
 				7FF6C95E29D1ACE30051FE2D /* OAuth2Service.swift */,
 				7FF6C96029D1AD0D0051FE2D /* OAuth2TokenStorage.swift */,
 				7FA543BE29E030EC0058C67D /* ProfileService.swift */,
-				7FA543C029E80C600058C67D /* ProfileImageService.swift */,
 			);
 			path = OAuth2;
 			sourceTree = "<group>";
@@ -174,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				7FF6C96229D2FDC40051FE2D /* SplashViewController */,
+				7FA543CB29F00B710058C67D /* ImagesListService */,
 				7FF6C95C29D1ACB30051FE2D /* ServiceAccessLayer */,
 				7FE35B6729C893FB0025C2AE /* Auth */,
 				7FF764A1299EAB1900AAF94B /* Presentation */,
@@ -297,6 +322,9 @@
 				7FF6C95B29CAEC630051FE2D /* WebViewViewController.swift in Sources */,
 				7FF76492299E3FA000AAF94B /* ImagesListViewController.swift in Sources */,
 				7FC70DBE29A381B800FC840A /* ImagesListCell.swift in Sources */,
+				7FA543D229F2A4850058C67D /* Photos.swift in Sources */,
+				7FA543CD29F00BB00058C67D /* ImagesListService.swift in Sources */,
+				7FA543D029F29A5C0058C67D /* PhotosResult.swift in Sources */,
 				7F6F0A2429B0B9FD002B1A78 /* ProfileViewController.swift in Sources */,
 				7FF6C95F29D1ACE30051FE2D /* OAuth2Service.swift in Sources */,
 				7FF6C96429D2FDCF0051FE2D /* SplashViewController.swift in Sources */,

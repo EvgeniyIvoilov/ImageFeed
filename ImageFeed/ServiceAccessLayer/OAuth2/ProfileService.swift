@@ -20,7 +20,6 @@ final class ProfileService {
                 if let error = error {
                     completion(.failure(error))
                 }
-                
                 guard let data = data else { return }
                 do {
                     let profileResult = try self.decoder.decode(ProfileResult.self, from: data)
@@ -34,12 +33,18 @@ final class ProfileService {
         self.task = task
         task.resume()
     }
+    
+    func clean() {
+        profile = nil
+        task?.cancel()
+        task = nil
+    }
 }
 
 struct ProfileResult: Codable {
     let userName: String
-    let firstName: String
-    let lastName: String
+    let firstName: String?
+    let lastName: String?
     let bio: String?
     
     enum CodingKeys: String, CodingKey {
@@ -62,8 +67,9 @@ struct Profile {
 
 extension Profile {
     static func from(_ profileResult: ProfileResult) -> Profile {
-        Profile(userName: profileResult.userName,
-                name: "\(profileResult.firstName) \(profileResult.lastName)",
-                bio: profileResult.bio ?? "Not found")
+        let name = (profileResult.firstName ?? "")  + " " + (profileResult.lastName ?? "")
+        return Profile(userName: profileResult.userName,
+                       name: name,
+                       bio: profileResult.bio ?? "Not found")
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,7 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        ProgressHUD.animationType = .systemActivityIndicator
+        ProgressHUD.colorHUD = UIColor(.ypWhite) ?? UIColor.white
+        ProgressHUD.colorAnimation = UIColor(.ypBlack) ?? UIColor.black
         return true
     }
 
@@ -26,9 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           )
         sceneConfiguration.delegateClass = SceneDelegate.self
         return sceneConfiguration
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        //return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {

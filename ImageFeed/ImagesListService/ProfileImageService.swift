@@ -40,7 +40,11 @@ final class ProfileImageService {
         task.resume()
     }
     
-
+    func clean() {
+        avatarURL = nil
+        task?.cancel()
+        task = nil
+    }
 }
 
 struct AvatarUrl {
