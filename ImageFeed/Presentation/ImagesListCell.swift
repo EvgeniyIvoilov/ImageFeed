@@ -51,6 +51,7 @@ final class ImagesListCell: UITableViewCell {
         super.awakeFromNib()
         addViews()
         constraintView()
+        likeButton.accessibilityLabel = "like button"
     }
     
     private func setupView(_ subView: UIView) {
